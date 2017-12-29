@@ -1,0 +1,93 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/aos/dist/aos.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/aos/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+   
+    <div class=" row title">
+        <div class="tile ">
+
+        <img src="./imgs/1.jpg"/>
+        <h1> Oh I think they like me </h1>
+        </div>
+    </div>  
+</div>
+
+
+</body>
+
+
+<script>
+
+var lyrics = `Clean pair of sneaks, with ADs on her belt
+Please watch your step 'cause I'm feeling myself
+Throw a flag on the play, man somebody get the ref
+Go blah da da da dol, man somebody get some help
+Pulled up on the block
+Hit the Quan
+Hit the Quan
+Hit the Quan
+Hit the Quan`.toString()
+
+
+    $(document).ready(function(){
+        var spl = lyrics.split("\n");
+        var temp = '';
+        for (var i = 0; i < spl.length; i++) {
+            var item = spl[i];
+            var dir = i % 2 == 0 ? "left" : "right"
+            var fade =  i % 2 == 0 ? "right" : "left"
+            temp += `
+            <div class=" row ${dir}" data-aos="fade-${fade}">
+                <div class="tile">
+                <img src="/imgs/${i+2}.jpg"/>
+                <h1> ${item} </h1>
+                </div>
+            </div>           
+            `.toString();
+
+        }
+        $(".container").append(temp);
+        var lol = ["B", "L", "O", "O", "P", "E", "R", "S", "HBD!"];
+
+        var temp = '';
+        for (var i = 0; i < lol.length; i++) {
+            var item = lol[i];
+            var fade =  i % 2 == 0 ? "right" : "left"
+
+            temp += `
+            <div class=" row ${dir}" data-aos="flip-${fade}">
+                <div class="tile">
+                    <h1 class="bloopers"> ${item} </h1>
+                </div>
+            </div>           
+            `.toString();
+
+
+
+        }
+        $(".container").append(temp);
+
+
+        
+
+
+
+
+
+
+        AOS.init();
+
+
+    });
+</script>
+
+</html>
